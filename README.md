@@ -31,14 +31,15 @@ This repository contains a collection of open-source projects for analyzing SOLI
 
 ## What's Included
 
-This dataset includes six diverse repositories:
+This dataset includes seven diverse repositories:
 
-1. **Dark Reader** (TypeScript) - Browser extension for dark mode
-2. **Jackson Dataformat XML** (Java) - XML processing library
-3. **jq** (C) - Command-line JSON processor
-4. **nlohmann/json** (C++) - Modern C++ JSON library
-5. **Requests** (Python) - Simple HTTP library for Python
-6. **Flask** (Python) - Lightweight web application framework
+1. **Axios** (JavaScript) - Promise-based HTTP client
+2. **Elasticsearch** (Java) - Distributed search and analytics engine
+3. **Express** (JavaScript) - Fast, unopinionated web framework
+4. **Day.js** (JavaScript) - Modern JavaScript date utility library
+5. **cpp-httplib** (C++) - C++ HTTP library
+6. **Requests** (Python) - Simple HTTP library for Python
+7. **Flask** (Python) - Lightweight web application framework
 
 ## Repository Structure
 
@@ -48,14 +49,11 @@ project_dataset/
 ├── repo_structure.md            # Detailed overview of each repository
 ├── setup.sh                     # Setup script for macOS/Linux
 ├── setup.ps1                    # Setup script for Windows
-├── darkreader/
-│   └── darkreader/              # TypeScript project
-├── fasterxml/
-│   └── jackson-dataformat-xml/  # Java project
-├── jqlang/
-│   └── jq/                      # C project
-├── nlohmann/
-│   └── json/                    # C++ project
+├── axios/                       # JavaScript HTTP client
+├── elastic/                     # Java search engine
+├── expressjs/                   # JavaScript web framework
+├── iamkun/                      # JavaScript date library
+├── yhirose/                     # C++ HTTP library
 ├── psf/
 │   └── requests/                # Python HTTP library
 └── pallets/
@@ -67,7 +65,7 @@ project_dataset/
 The setup script (`setup.sh` or `setup.ps1`) will:
 
 - Check if git is installed
-- Clone all six repositories from GitHub
+- Clone all seven repositories from GitHub
 - Handle existing repositories (asks if you want to update)
 - Create necessary directories automatically
 - Provide clear progress feedback
@@ -78,13 +76,14 @@ If you prefer to clone repositories manually:
 
 ```bash
 # Create directories
-mkdir -p darkreader fasterxml jqlang nlohmann psf pallets
+mkdir -p axios elastic expressjs iamkun yhirose psf pallets
 
 # Clone repositories
-git clone https://github.com/darkreader/darkreader.git darkreader/darkreader
-git clone https://github.com/fasterxml/jackson-dataformat-xml.git fasterxml/jackson-dataformat-xml
-git clone https://github.com/jqlang/jq.git jqlang/jq
-git clone https://github.com/nlohmann/json.git nlohmann/json
+git clone https://github.com/axios/axios.git axios
+git clone https://github.com/elastic/elasticsearch.git elastic
+git clone https://github.com/expressjs/express.git expressjs
+git clone https://github.com/iamkun/dayjs.git iamkun
+git clone https://github.com/yhirose/cpp-httplib.git yhirose
 git clone https://github.com/psf/requests.git psf/requests
 git clone https://github.com/pallets/flask.git pallets/flask
 ```
@@ -118,13 +117,6 @@ See `repo_structure.md` for:
 ### Permission denied on setup.sh
 - Make it executable: `chmod +x setup.sh`
 
-## Contributing
-
-This is a learning dataset. Feel free to:
-
-- Add your analysis notes
-- Document findings
-- Share improvements to the setup process
 
 ## License
 
@@ -132,9 +124,10 @@ Each repository maintains its own license. Please refer to individual repository
 
 | Repository | License |
 |------------|---------|
-| Dark Reader | MIT |
-| Jackson Dataformat XML | Apache-2.0 |
-| jq | MIT |
-| nlohmann/json | MIT |
+| Axios | MIT |
+| Elasticsearch | Apache-2.0 / Elastic License |
+| Express | MIT |
+| Day.js | MIT |
+| cpp-httplib | MIT |
 | Requests | Apache-2.0 |
 | Flask | BSD 3-Clause |

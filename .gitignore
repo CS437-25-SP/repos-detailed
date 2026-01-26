@@ -3,6 +3,15 @@ darkreader/
 fasterxml/
 jqlang/
 nlohmann/
+axios/
+elastic/
+expressjs/
+iamkun/
+yhirose/
+psf/
+pallets/
+requests/
+flask/
 
 # Keep the setup scripts and documentation
 !setup.sh

@@ -7,10 +7,11 @@ $ErrorActionPreference = "Stop"
 # Repository configurations
 # Format: @{Url="github_org/repo_name"; Path="local_directory"}
 $Repos = @(
-    @{Url="darkreader/darkreader"; Path="darkreader\darkreader"},
-    @{Url="fasterxml/jackson-dataformat-xml"; Path="fasterxml\jackson-dataformat-xml"},
-    @{Url="jqlang/jq"; Path="jqlang\jq"},
-    @{Url="nlohmann/json"; Path="nlohmann\json"},
+    @{Url="axios/axios"; Path="axios"},
+    @{Url="elastic/elasticsearch"; Path="elastic"},
+    @{Url="expressjs/express"; Path="expressjs"},
+    @{Url="iamkun/dayjs"; Path="iamkun"},
+    @{Url="yhirose/cpp-httplib"; Path="yhirose"},
     @{Url="psf/requests"; Path="psf\requests"},
     @{Url="pallets/flask"; Path="pallets\flask"}
 )
@@ -20,12 +21,13 @@ Write-Host "Project Dataset Setup Script" -ForegroundColor Cyan
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host ""
 Write-Host "This script will clone the following repositories:" -ForegroundColor White
-Write-Host "  1. Dark Reader (TypeScript)" -ForegroundColor White
-Write-Host "  2. Jackson Dataformat XML (Java)" -ForegroundColor White
-Write-Host "  3. jq (C)" -ForegroundColor White
-Write-Host "  4. nlohmann/json (C++)" -ForegroundColor White
-Write-Host "  5. Requests (Python)" -ForegroundColor White
-Write-Host "  6. Flask (Python)" -ForegroundColor White
+Write-Host "  1. Axios (JavaScript) - Promise-based HTTP client" -ForegroundColor White
+Write-Host "  2. Elasticsearch (Java) - Distributed search and analytics engine" -ForegroundColor White
+Write-Host "  3. Express (JavaScript) - Fast, unopinionated web framework" -ForegroundColor White
+Write-Host "  4. Day.js (JavaScript) - Modern JavaScript date utility library" -ForegroundColor White
+Write-Host "  5. cpp-httplib (C++) - C++ HTTP library" -ForegroundColor White
+Write-Host "  6. Requests (Python) - Simple HTTP library for Python" -ForegroundColor White
+Write-Host "  7. Flask (Python) - Lightweight web application framework" -ForegroundColor White
 Write-Host ""
 
 # Check if git is installed
