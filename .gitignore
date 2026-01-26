@@ -1,0 +1,23 @@
+# Ignore cloned repositories - students will download them via setup.sh
+darkreader/
+fasterxml/
+jqlang/
+nlohmann/
+
+# Keep the setup scripts and documentation
+!setup.sh
+!setup.ps1
+!README.md
+!repo_structure.md
+!.gitignore
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
