@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # Setup script for project_dataset
 # This script downloads/clones all required repositories for the SOLID principles analysis project
 # Usage: ./setup.sh
@@ -20,6 +19,8 @@ REPOS=(
     "fasterxml/jackson-dataformat-xml:fasterxml/jackson-dataformat-xml"
     "jqlang/jq:jqlang/jq"
     "nlohmann/json:nlohmann/json"
+    "psf/requests:psf/requests"
+    "pallets/flask:pallets/flask"
 )
 
 echo -e "${BLUE}========================================${NC}"
@@ -31,6 +32,8 @@ echo "  1. Dark Reader (TypeScript)"
 echo "  2. Jackson Dataformat XML (Java)"
 echo "  3. jq (C)"
 echo "  4. nlohmann/json (C++)"
+echo "  5. Requests (Python)"
+echo "  6. Flask (Python)"
 echo ""
 
 # Check if git is installed
@@ -48,7 +51,7 @@ clone_repo() {
     local repo_url=$1
     local local_path=$2
     local repo_name=$(basename "$local_path")
-    
+
     if [ -d "$local_path" ]; then
         if [ -d "$local_path/.git" ]; then
             echo -e "${YELLOW}→ Repository $repo_name already exists${NC}"

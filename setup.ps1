@@ -10,7 +10,9 @@ $Repos = @(
     @{Url="darkreader/darkreader"; Path="darkreader\darkreader"},
     @{Url="fasterxml/jackson-dataformat-xml"; Path="fasterxml\jackson-dataformat-xml"},
     @{Url="jqlang/jq"; Path="jqlang\jq"},
-    @{Url="nlohmann/json"; Path="nlohmann\json"}
+    @{Url="nlohmann/json"; Path="nlohmann\json"},
+    @{Url="psf/requests"; Path="psf\requests"},
+    @{Url="pallets/flask"; Path="pallets\flask"}
 )
 
 Write-Host "========================================" -ForegroundColor Cyan
@@ -22,6 +24,8 @@ Write-Host "  1. Dark Reader (TypeScript)" -ForegroundColor White
 Write-Host "  2. Jackson Dataformat XML (Java)" -ForegroundColor White
 Write-Host "  3. jq (C)" -ForegroundColor White
 Write-Host "  4. nlohmann/json (C++)" -ForegroundColor White
+Write-Host "  5. Requests (Python)" -ForegroundColor White
+Write-Host "  6. Flask (Python)" -ForegroundColor White
 Write-Host ""
 
 # Check if git is installed
