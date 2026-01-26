@@ -60,11 +60,11 @@ project_dataset/
 
 The setup script (`setup.sh` or `setup.ps1`) will:
 
-- ✅ Check if git is installed
-- ✅ Clone all four repositories from GitHub
-- ✅ Handle existing repositories (asks if you want to update)
-- ✅ Create necessary directories automatically
-- ✅ Provide clear progress feedback
+- Check if git is installed
+- Clone all four repositories from GitHub
+- Handle existing repositories (asks if you want to update)
+- Create necessary directories automatically
+- Provide clear progress feedback
 
 ## Manual Setup (Alternative)
 
