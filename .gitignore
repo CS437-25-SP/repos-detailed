@@ -16,6 +16,8 @@ flask/
 # Keep the setup scripts and documentation
 !setup.sh
 !setup.ps1
+!run_tests.sh
+!run_tests.ps1
 !README.md
 !repo_structure.md
 !.gitignore
@@ -23,6 +25,9 @@ flask/
 # OS files
 .DS_Store
 Thumbs.db
+
+# Local caches created by run_tests.*
+.cache/
 
 # Editor files
 .vscode/

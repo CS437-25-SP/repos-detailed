@@ -29,6 +29,49 @@ This repository contains a collection of open-source projects for analyzing SOLI
    - Read the README files in each repository
    - Begin your SOLID principles and design pattern analysis
 
+## Running Tests (to verify your refactor didn’t break anything)
+
+Before you refactor, run the tests once to establish a **green baseline**. After each refactor, re-run tests to confirm behavior didn’t change.
+
+### Run All Tests
+
+- **macOS/Linux**:
+```bash
+./run_tests.sh
+```
+
+- **Windows (PowerShell)**:
+```powershell
+.\run_tests.ps1
+```
+
+### Run Tests for Specific Repositories
+
+You can run tests for only the repositories you're working on:
+
+- **macOS/Linux**:
+```bash
+./run_tests.sh axios flask          # Run only axios and flask
+./run_tests.sh expressjs             # Run only expressjs
+./run_tests.sh requests flask        # Run only Python repos
+```
+
+- **Windows (PowerShell)**:
+```powershell
+.\run_tests.ps1 axios flask          # Run only axios and flask
+.\run_tests.ps1 expressjs            # Run only expressjs
+.\run_tests.ps1 requests flask       # Run only Python repos
+```
+
+**Valid repo names**: `axios`, `expressjs`, `iamkun` (or `dayjs`), `yhirose` (or `cpp-httplib`), `requests`, `flask`, `elastic` (or `elasticsearch`)
+
+### Notes
+- **Node repos** (Axios, Express, Day.js) run `npm test` in each repo.
+- **Python repos** (Requests, Flask) create a local `.venv/` in each repo and run `pytest`.
+- **C++ repo** (cpp-httplib) runs a clean `cmake` build and `ctest` if available.
+- **Elasticsearch** is **skipped by default** because it’s very large/slow; the script tells you how to run it manually if needed.
+- On the **first run**, the script may install dependencies (npm/pip) and take a few minutes.
+
 ## What's Included
 
 This dataset includes seven diverse repositories:
@@ -49,6 +92,8 @@ project_dataset/
 ├── repo_structure.md            # Detailed overview of each repository
 ├── setup.sh                     # Setup script for macOS/Linux
 ├── setup.ps1                    # Setup script for Windows
+├── run_tests.sh                 # Run all tests (macOS/Linux)
+├── run_tests.ps1                # Run all tests (Windows)
 ├── axios/                       # JavaScript HTTP client
 ├── elastic/                     # Java search engine
 ├── expressjs/                   # JavaScript web framework
