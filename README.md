@@ -1,178 +1,469 @@
-# Project Dataset - SOLID Principles & Design Pattern Analysis
+# Repository Structure Guide for SOLID Principles & Design Pattern Analysis
 
-This repository contains a collection of open-source projects for analyzing SOLID principles violations and design pattern implementations across different programming languages.
+This document provides an overview of the seven repositories assigned for refactoring analysis. Each repository represents a different programming language and architectural approach, offering diverse opportunities to identify SOLID principles violations and design pattern issues.
 
-## Quick Start
+---
 
-### For Students
+## 1. Axios (JavaScript)
+**Repository**: `axios/axios`  
+**Language**: JavaScript/TypeScript  
+**Build System**: npm/rollup  
+**Purpose**: Promise-based HTTP client for the browser and Node.js
 
-1. Clone this repository:
-   ```bash
-   git clone <your-repo-url> project_dataset
-   cd project_dataset
-   ```
+### Project Structure
+```
+axios/
+├── package.json                  # npm configuration
+├── rollup.config.js              # Build configuration
+├── lib/
+│   ├── axios.js                  # Main entry point
+│   ├── core/
+│   │   ├── Axios.js              # Main Axios class
+│   │   ├── InterceptorManager.js # Request/response interceptors
+│   │   ├── dispatchRequest.js    # Request dispatcher
+│   │   ├── mergeConfig.js        # Configuration merging
+│   │   └── transformData.js      # Data transformation
+│   ├── adapters/
+│   │   ├── xhr.js                # XMLHttpRequest adapter (browser)
+│   │   └── http.js               # HTTP adapter (Node.js)
+│   ├── helpers/
+│   │   ├── bind.js               # Function binding
+│   │   ├── buildURL.js           # URL building
+│   │   ├── cookies.js            # Cookie handling
+│   │   └── ...                   # Various helpers
+│   └── defaults/
+│       └── index.js              # Default configuration
+└── test/                          # Test files
+```
 
-2. Run the setup script to download all required repositories:
-
-   **On macOS/Linux:**
-   ```bash
-   ./setup.sh
-   ```
-
-   **On Windows (PowerShell):**
-   ```powershell
-   .\setup.ps1
-   ```
-
-3. Start analyzing!
-   - Review `repo_structure.md` for an overview of each project
-   - Read the README files in each repository
-   - Begin your SOLID principles and design pattern analysis
-
-## Running Tests (to verify your refactor didn’t break anything)
-
-Before you refactor, run the tests once to establish a **green baseline**. After each refactor, re-run tests to confirm behavior didn’t change.
-
-### Run All Tests
-
-- **macOS/Linux**:
+### Build & Test Commands
 ```bash
-./run_tests.sh
+# Install dependencies
+npm install
+
+# Run tests
+npm test
+
+# Build the library
+npm run build
+
+# Run linting
+npm run lint
 ```
 
-- **Windows (PowerShell)**:
-```powershell
-.\run_tests.ps1
+### Key Design Patterns to Analyze
+- **Adapter pattern**: XHR and HTTP adapters
+- **Interceptor pattern**: Request/response interceptors
+- **Builder pattern**: Request configuration
+- **Singleton pattern**: Default instances
+
+---
+
+## 2. Elasticsearch (Java)
+**Repository**: `elastic/elasticsearch`  
+**Language**: Java  
+**Build System**: Gradle  
+**Purpose**: Distributed, RESTful search and analytics engine
+
+### Project Structure
+```
+elasticsearch/
+├── build.gradle                  # Build configuration
+├── settings.gradle
+├── server/
+│   └── src/
+│       └── main/
+│           └── java/
+│               └── org/elasticsearch/
+│                   ├── action/           # Action classes
+│                   ├── cluster/          # Cluster management
+│                   ├── common/           # Common utilities
+│                   ├── index/            # Index operations
+│                   ├── node/             # Node management
+│                   ├── rest/             # REST API handlers
+│                   └── transport/        # Transport layer
+├── modules/
+│   ├── analysis-common/          # Text analysis
+│   ├── mapper-extras/            # Field mappers
+│   └── ...                        # Various modules
+└── test/
+    └── framework/                 # Test framework
 ```
 
-### Run Tests for Specific Repositories
-
-You can run tests for only the repositories you're working on:
-
-- **macOS/Linux**:
+### Build & Test Commands
 ```bash
-./run_tests.sh axios flask          # Run only axios and flask
-./run_tests.sh expressjs             # Run only expressjs
-./run_tests.sh requests flask        # Run only Python repos
+# Build the project
+./gradlew build
+
+# Run tests
+./gradlew test
+
+# Run specific test
+./gradlew :server:test --tests "org.elasticsearch.cluster.*"
+
+# Build distribution
+./gradlew :distribution:archives:tar:assemble
 ```
 
-- **Windows (PowerShell)**:
-```powershell
-.\run_tests.ps1 axios flask          # Run only axios and flask
-.\run_tests.ps1 expressjs            # Run only expressjs
-.\run_tests.ps1 requests flask       # Run only Python repos
+### Key Design Patterns to Analyze
+- **Action pattern**: Request/response actions
+- **Transport pattern**: Network communication abstraction
+- **Module system**: Plugin architecture
+- **Cluster coordination**: Distributed system patterns
+
+---
+
+## 3. Express (JavaScript)
+**Repository**: `expressjs/express`  
+**Language**: JavaScript  
+**Build System**: npm  
+**Purpose**: Fast, unopinionated, minimalist web framework for Node.js
+
+### Project Structure
+```
+express/
+├── package.json                  # npm configuration
+├── lib/
+│   ├── express.js                # Main Express application
+│   ├── application.js            # Application class
+│   ├── request.js                # Request object extension
+│   ├── response.js               # Response object extension
+│   ├── router/
+│   │   ├── index.js              # Router implementation
+│   │   ├── layer.js              # Route layer
+│   │   └── route.js              # Route handler
+│   ├── middleware/
+│   │   ├── init.js               # Initialization middleware
+│   │   └── query.js              # Query parsing middleware
+│   └── utils.js                  # Utility functions
+└── test/                          # Test files
 ```
 
-**Valid repo names**: `axios`, `expressjs`, `iamkun` (or `dayjs`), `yhirose` (or `cpp-httplib`), `requests`, `flask`, `elastic` (or `elasticsearch`)
-
-### Notes
-- **Node repos** (Axios, Express, Day.js) run `npm test` in each repo.
-- **Python repos** (Requests, Flask) create a local `.venv/` in each repo and run `pytest`.
-- **C++ repo** (cpp-httplib) runs a clean `cmake` build and `ctest` if available.
-- **Elasticsearch** is **skipped by default** because it’s very large/slow; the script tells you how to run it manually if needed.
-- On the **first run**, the script may install dependencies (npm/pip) and take a few minutes.
-
-## What's Included
-
-This dataset includes seven diverse repositories:
-
-1. **Axios** (JavaScript) - Promise-based HTTP client
-2. **Elasticsearch** (Java) - Distributed search and analytics engine
-3. **Express** (JavaScript) - Fast, unopinionated web framework
-4. **Day.js** (JavaScript) - Modern JavaScript date utility library
-5. **cpp-httplib** (C++) - C++ HTTP library
-6. **Requests** (Python) - Simple HTTP library for Python
-7. **Flask** (Python) - Lightweight web application framework
-
-## Repository Structure
-
-```
-project_dataset/
-├── README.md                    # This file
-├── repo_structure.md            # Detailed overview of each repository
-├── setup.sh                     # Setup script for macOS/Linux
-├── setup.ps1                    # Setup script for Windows
-├── run_tests.sh                 # Run all tests (macOS/Linux)
-├── run_tests.ps1                # Run all tests (Windows)
-├── axios/                       # JavaScript HTTP client
-├── elastic/                     # Java search engine
-├── expressjs/                   # JavaScript web framework
-├── iamkun/                      # JavaScript date library
-├── yhirose/                     # C++ HTTP library
-├── psf/
-│   └── requests/                # Python HTTP library
-└── pallets/
-    └── flask/                   # Python web framework
-```
-
-## Setup Script Features
-
-The setup script (`setup.sh` or `setup.ps1`) will:
-
-- Check if git is installed
-- Clone all seven repositories from GitHub
-- Handle existing repositories (asks if you want to update)
-- Create necessary directories automatically
-- Provide clear progress feedback
-
-## Manual Setup (Alternative)
-
-If you prefer to clone repositories manually:
-
+### Build & Test Commands
 ```bash
-# Create directories
-mkdir -p axios elastic expressjs iamkun yhirose psf pallets
+# Install dependencies
+npm install
 
-# Clone repositories
-git clone https://github.com/axios/axios.git axios
-git clone https://github.com/elastic/elasticsearch.git elastic
-git clone https://github.com/expressjs/express.git expressjs
-git clone https://github.com/iamkun/dayjs.git iamkun
-git clone https://github.com/yhirose/cpp-httplib.git yhirose
-git clone https://github.com/psf/requests.git psf/requests
-git clone https://github.com/pallets/flask.git pallets/flask
+# Run tests
+npm test
+
+# Run specific test file
+npm test -- test/express.js
+
+# Run with coverage
+npm run test-cov
 ```
 
-## Requirements
+### Key Design Patterns to Analyze
+- **Middleware pattern**: Request processing pipeline
+- **Router pattern**: Route matching and dispatching
+- **Decorator pattern**: Route decorators
+- **Chain of Responsibility**: Middleware chain
 
-- **Git** - Required for cloning repositories
-  - Install: https://git-scm.com/downloads
-- **Internet connection** - Required to download repositories from GitHub
+---
 
-## Analysis Workflow
+## 4. Day.js (JavaScript)
+**Repository**: `iamkun/dayjs`  
+**Language**: JavaScript  
+**Build System**: npm/rollup  
+**Purpose**: Modern JavaScript date utility library (2KB alternative to Moment.js)
 
-See `repo_structure.md` for:
+### Project Structure
+```
+dayjs/
+├── package.json                  # npm configuration
+├── rollup.config.js              # Build configuration
+├── src/
+│   ├── index.js                  # Main entry point
+│   ├── index.d.ts                # TypeScript definitions
+│   ├── locale/                   # Locale files
+│   │   ├── en.js
+│   │   ├── zh-cn.js
+│   │   └── ...                    # 100+ locales
+│   └── plugin/                   # Plugin system
+│       ├── advancedFormat.js
+│       ├── relativeTime.js
+│       ├── timezone.js
+│       └── ...                    # Various plugins
+├── test/
+│   └── index.test.js             # Test suite
+└── types/
+    └── index.d.ts                # TypeScript types
+```
 
-- Detailed project structure of each repository
-- Build and test commands
-- Analysis workflow recommendations
-- Testing strategies
+### Build & Test Commands
+```bash
+# Install dependencies
+npm install
 
-## Troubleshooting
+# Run tests
+npm test
 
-### Setup script fails
-- Ensure git is installed: `git --version`
-- Check your internet connection
-- Verify you have write permissions in the directory
+# Build the library
+npm run build
 
-### Repository already exists
-- The script will ask if you want to update existing repositories
-- Choose 'y' to update, 'n' to skip
+# Run specific test
+npm test -- --grep "format"
+```
 
-### Permission denied on setup.sh
-- Make it executable: `chmod +x setup.sh`
+### Key Design Patterns to Analyze
+- **Plugin pattern**: Extensible plugin architecture
+- **Factory pattern**: Day.js instance creation
+- **Chain pattern**: Method chaining
+- **Immutable pattern**: Date immutability
 
+---
 
-## License
+## 5. cpp-httplib (C++)
+**Repository**: `yhirose/cpp-httplib`  
+**Language**: C++  
+**Build System**: CMake (optional, header-only)  
+**Purpose**: A C++11 single-file header-only HTTP/HTTPS library
 
-Each repository maintains its own license. Please refer to individual repository LICENSE files for details.
+### Project Structure
+```
+cpp-httplib/
+├── CMakeLists.txt                # CMake configuration (optional)
+├── httplib.h                     # Single header file (main library)
+├── test/
+│   ├── test.cc                   # Test file
+│   ├── test_multipart.cc         # Multipart tests
+│   └── test_ssl.cc               # SSL tests
+└── example/
+    ├── hello.cc                   # Hello world example
+    ├── server.cc                  # Server example
+    └── client.cc                  # Client example
+```
 
-| Repository | License |
-|------------|---------|
-| Axios | MIT |
-| Elasticsearch | Apache-2.0 / Elastic License |
-| Express | MIT |
-| Day.js | MIT |
-| cpp-httplib | MIT |
-| Requests | Apache-2.0 |
-| Flask | BSD 3-Clause |
+### Build & Test Commands
+```bash
+# Since it's header-only, just include httplib.h
+# For testing:
+mkdir build && cd build
+cmake ..
+make
+./test
+
+# Compile example
+g++ -std=c++11 example/hello.cc -o hello -pthread
+```
+
+### Key Design Patterns to Analyze
+- **Header-only library**: Template-based design
+- **RAII pattern**: Resource management
+- **Callback pattern**: Request handlers
+- **Singleton pattern**: Server instances
+
+---
+
+## 6. Requests (Python)
+**Repository**: `psf/requests`  
+**Language**: Python  
+**Build System**: setuptools/pip  
+**Purpose**: Simple, elegant HTTP library for Python
+
+### Project Structure
+```
+requests/
+├── setup.py                      # Package configuration
+├── setup.cfg                     # Setup configuration
+├── pyproject.toml                # Modern Python packaging
+├── src/
+│   └── requests/
+│       ├── __init__.py            # Package initialization
+│       ├── api.py                 # Public API (get, post, put, etc.)
+│       ├── sessions.py            # Session management
+│       ├── models.py              # Request/Response models
+│       ├── adapters.py            # Transport adapters
+│       ├── auth.py                # Authentication handlers
+│       ├── cookies.py             # Cookie handling
+│       ├── exceptions.py          # Custom exceptions
+│       ├── hooks.py               # Event hooks
+│       ├── structures.py          # Data structures
+│       ├── utils.py               # Utility functions
+│       ├── status_codes.py        # HTTP status codes
+│       ├── compat.py              # Python 2/3 compatibility
+│       └── certs.py               # SSL certificate handling
+└── tests/
+    ├── conftest.py                # pytest configuration
+    ├── test_requests.py           # Main test file
+    ├── test_hooks.py               # Hook tests
+    ├── test_lowlevel.py           # Low-level tests
+    ├── test_structures.py          # Data structure tests
+    └── test_utils.py               # Utility tests
+```
+
+### Build & Test Commands
+```bash
+# Create virtual environment (recommended)
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install in development mode
+pip install -e ".[dev]"
+
+# Run tests
+pytest tests/
+
+# Run specific test file
+pytest tests/test_requests.py
+
+# Run with coverage
+pytest --cov=requests tests/
+
+# Run linting
+flake8 src/requests
+```
+
+### Key Design Patterns to Analyze
+- **Session pattern**: Connection pooling and cookie persistence
+- **Adapter pattern**: Transport adapters for different protocols
+- **Hook system**: Event-based extensibility
+- **Builder pattern**: Request preparation
+
+---
+
+## 7. Flask (Python)
+**Repository**: `pallets/flask`  
+**Language**: Python  
+**Build System**: setuptools/pip  
+**Purpose**: Lightweight WSGI web application framework
+
+### Project Structure
+```
+flask/
+├── setup.py                      # Package configuration
+├── pyproject.toml                # Modern Python packaging
+├── src/
+│   └── flask/
+│       ├── __init__.py            # Package initialization & Flask class
+│       ├── app.py                 # Main Flask application class
+│       ├── blueprints.py          # Blueprint implementation
+│       ├── cli.py                 # Command-line interface
+│       ├── config.py              # Configuration handling
+│       ├── ctx.py                 # Application/Request contexts
+│       ├── globals.py             # Thread-local globals (g, request)
+│       ├── helpers.py             # Helper functions (url_for, flash)
+│       ├── json/                  # JSON handling
+│       │   ├── __init__.py
+│       │   ├── provider.py
+│       │   └── tag.py
+│       ├── logging.py             # Logging configuration
+│       ├── sessions.py            # Session management
+│       ├── signals.py             # Blinker signals
+│       ├── templating.py          # Jinja2 integration
+│       ├── testing.py             # Test client
+│       ├── views.py              # Class-based views
+│       └── wrappers.py            # Request/Response wrappers
+└── tests/
+    ├── conftest.py                # pytest configuration
+    ├── test_appctx.py             # Application context tests
+    ├── test_basic.py              # Basic functionality tests
+    ├── test_blueprints.py         # Blueprint tests
+    ├── test_cli.py                # CLI tests
+    ├── test_config.py             # Configuration tests
+    ├── test_helpers.py            # Helper function tests
+    ├── test_reqctx.py             # Request context tests
+    ├── test_session.py            # Session tests
+    ├── test_signals.py            # Signal tests
+    ├── test_templating.py         # Templating tests
+    ├── test_testing.py            # Test client tests
+    └── test_views.py              # View tests
+```
+
+### Build & Test Commands
+```bash
+# Create virtual environment (recommended)
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install in development mode
+pip install -e ".[dev]"
+
+# Run tests
+pytest tests/
+
+# Run specific test file
+pytest tests/test_basic.py
+
+# Run with coverage
+pytest --cov=flask tests/
+
+# Run linting
+flake8 src/flask
+```
+
+### Key Design Patterns to Analyze
+- **Application factory pattern**: `create_app()` pattern
+- **Blueprint pattern**: Modular application components
+- **Context locals**: Thread-local request/application contexts
+- **Decorator pattern**: Route decorators (`@app.route`)
+- **Signals**: Observer pattern with Blinker
+
+---
+
+## General Analysis Workflow
+
+### Step 1: Understand the Codebase
+1. Read the README and documentation
+2. Understand the build system
+3. Run the tests to ensure everything works
+4. Identify the main entry points
+
+### Step 2: Identify Violations
+1. **Large Classes/Functions**: Look for classes/functions with too many responsibilities
+2. **Tight Coupling**: Identify classes that depend heavily on concrete implementations
+3. **Code Duplication**: Find repeated code patterns
+4. **Hard-coded Dependencies**: Look for direct instantiations instead of dependency injection
+5. **Violation of DRY**: Repeated logic that should be abstracted
+
+### Step 3: Refactor
+1. Apply SOLID principles
+2. Introduce appropriate design patterns
+3. Reduce coupling
+4. Improve testability
+5. Maintain backward compatibility where possible
+
+### Step 4: Test
+1. Run existing test suite
+2. Ensure no regressions
+3. Add new tests for refactored code
+4. Verify functionality is preserved
+
+---
+
+## Testing Strategy
+
+Each repository has its own testing approach:
+
+- **Axios**: Jest/Mocha for unit tests with comprehensive HTTP mocking
+- **Elasticsearch**: JUnit with extensive integration tests
+- **Express**: Mocha/Chai with supertest for HTTP testing
+- **Day.js**: Jest with comprehensive date manipulation tests
+- **cpp-httplib**: Custom test framework with HTTP server/client tests
+- **Requests**: pytest with comprehensive HTTP mocking
+- **Flask**: pytest with test client for integration testing
+
+**Important**: After refactoring, ensure all existing tests pass to confirm no regression.
+
+---
+
+## Resources
+
+- **SOLID Principles**: https://en.wikipedia.org/wiki/SOLID
+- **Design Patterns**: "Design Patterns: Elements of Reusable Object-Oriented Software" (Gang of Four)
+- **Refactoring**: "Refactoring: Improving the Design of Existing Code" by Martin Fowler
+
+---
+
+## Notes
+
+- Each repository represents different architectural challenges
+- Focus on understanding the domain before refactoring
+- Document your findings and refactoring decisions
+- Consider performance implications of refactoring
+- Maintain code readability and maintainability
+- The JavaScript repositories (Axios, Express, Day.js) are excellent for studying modern JavaScript patterns
+- The Python repositories (Requests, Flask) showcase Pythonic design patterns
+- Elasticsearch provides insights into large-scale distributed system architecture
+- cpp-httplib demonstrates header-only library design in C++
