@@ -142,7 +142,7 @@ https://github.com/google/gson/tree/main/gson/src/main
 
 ## 6) Java — GoogleContainerTools/jib
 
-### What to analyze (multi-module)
+### (multi-module)
 Primary code exists per module (each typically has `src/main/java/` and `src/test/java/`):
 
 - [`jib-core/`](https://github.com/GoogleContainerTools/jib/tree/master/jib-core) — core library  
@@ -178,7 +178,7 @@ Use this as background reading for benchmarking practices in Kotlin projects.
 **Pinned path:**  
 https://github.com/ankidroid/Anki-Android/tree/main/AnkiDroid/src/main/java/com/ichi2
 
-### What to analyze
+
 - `AnkiDroid/` — main Android app (Kotlin/Java)
 - Primary package path example: `AnkiDroid/src/main/java/com/ichi2`
 
@@ -197,7 +197,7 @@ https://github.com/ankidroid/Anki-Android/tree/main/AnkiDroid/src/main/java/com/
 **Pinned path:**  
 https://github.com/wordpress-mobile/WordPress-Android/tree/trunk/WordPress/src/main/java/org/wordpress/android
 
-### What to analyze
+
 - `WordPress/src/main/java/org/wordpress/android` — main Android source
 
 ### Supporting directories
@@ -217,7 +217,7 @@ https://github.com/wordpress-mobile/WordPress-Android/tree/trunk/WordPress/src/m
 **Pinned path:**  
 https://github.com/Kotlin/kotlinx.coroutines/tree/master/kotlinx-coroutines-core
 
-### What to analyze
+
 - `kotlinx-coroutines-core/` — core library module
 
 ### Other modules (optional)
@@ -237,7 +237,7 @@ https://github.com/Kotlin/kotlinx.coroutines/tree/master/kotlinx-coroutines-core
 **Pinned path:**  
 https://github.com/Kotlin/kotlinx-datetime/tree/master/core
 
-### What to analyze
+
 - `core/` — main datetime library module
 - `timezones/` — timezone functionality (good for additional design exploration)
 
@@ -256,15 +256,13 @@ https://github.com/Kotlin/kotlinx-datetime/tree/master/core
 **Source:** https://github.com/psf/requests/tree/main/src/requests  
 **Tests:** https://github.com/psf/requests/tree/main/tests  
 
-### What to analyze
+
 - `src/requests/` — main library implementation (src-layout)
 
 ### Key directories
 - `tests/` — unit/integration tests
 
-### Build / Tooling (common indicators)
-- `pyproject.toml` — build/tool configuration
-- `tox.ini` — multi-environment testing automation (if used)
+
 
 ---
 
@@ -274,15 +272,12 @@ https://github.com/Kotlin/kotlinx-datetime/tree/master/core
 **Source:** https://github.com/pallets/flask/tree/main/src/flask  
 **Tests:** https://github.com/pallets/flask/tree/main/tests  
 
-### What to analyze
 - `src/flask/` — core framework implementation (src-layout)
 
 ### Key directories
 - `tests/` — test suite
 - `examples/` — example applications / usage patterns (if present)
 
-### Build / Tooling (common indicators)
-- `pyproject.toml` — build/tool configuration
 
 ---
 
@@ -298,8 +293,7 @@ https://github.com/Kotlin/kotlinx-datetime/tree/master/core
 - `xarray/tests/` — tests
 - `xarray/testing/` — testing helpers/utilities
 
-### Build / Tooling (common indicators)
-- `pyproject.toml` — build/tool configuration
+
 
 ---
 
@@ -309,14 +303,13 @@ https://github.com/Kotlin/kotlinx-datetime/tree/master/core
 **Source:** https://github.com/mwaskom/seaborn/tree/master/seaborn  
 **Tests:** https://github.com/mwaskom/seaborn/tree/master/tests  
 
-### What to analyze
+
 - `seaborn/` — main library package
 
 ### Key directories
 - `tests/` — test suite
 
-### Build / Tooling (common indicators)
-- `pyproject.toml` — build/tool configuration
+
 
 ---
 
@@ -326,19 +319,16 @@ https://github.com/Kotlin/kotlinx-datetime/tree/master/core
 **Source:** https://github.com/pytest-dev/pytest/tree/main/src/_pytest  
 **Tests:** https://github.com/pytest-dev/pytest/tree/main/testing  
 
-### What to analyze
+
 - `src/_pytest/` — core framework implementation (src-layout)
 
 ### Key directories
 - `testing/` — test suite (note: `testing/`, not `tests/`)
 
-### Build / Tooling (common indicators)
-- `pyproject.toml` — build/tool configuration
-- `tox.ini` — multi-environment testing automation (if used)
 
 ---
 
-> **Important**: After any refactoring, run the full test suite to confirm no regressions. For Android projects, run both unit tests and instrumented tests.
+> **Important**: After refactoring, ensure all existing tests pass to confirm no regression.
 
 
 ---
@@ -347,7 +337,7 @@ https://github.com/Kotlin/kotlinx-datetime/tree/master/core
 
 - **SOLID Principles**: https://en.wikipedia.org/wiki/SOLID
 - **Design Patterns**: *Design Patterns: Elements of Reusable Object-Oriented Software* — Gang of Four
-- **Refactoring**: *Refactoring: Improving the Design of Existing Code* — Martin Fowler
+- **Refactoring**: *Refactoring: Improving the Design of Existing Code* — Martin Fowler ([refactoring.guru](https://refactoring.guru/))
 - **Clean Architecture**: *Clean Architecture* — Robert C. Martin
 
 ---
@@ -357,12 +347,7 @@ https://github.com/Kotlin/kotlinx-datetime/tree/master/core
 - Each repository represents different architectural challenges suited to different SOLID principles
 - Focus on understanding the domain and existing design intent before refactoring
 - Document your findings and the rationale behind each refactoring decision
-- Consider performance implications, especially in high-throughput libraries (Jackson, Fastjson2, Matplotlib)
 - Maintain code readability and maintainability as the primary goals
-- The Java repositories (Jackson-Core, Fastjson2, Gson) offer rich comparison opportunities for the same problem domain
-- The Kotlin repositories (kotlinx.coroutines, kotlinx-datetime) showcase idiomatic multiplatform library design
-- Android projects (Anki-Android, WordPress-Android) demonstrate real-world MVVM and architectural evolution under production constraints
-- Python repositories (Flask, pytest, Matplotlib) highlight both elegant design and accumulated complexity in mature open-source projects
 
 
 ---
@@ -375,25 +360,24 @@ This appendix provides verified source file and line counts for each repository'
 
 ## Master index (all entries)
 
-| #  | Repository                         | Language    | Domain                              | Branch   | Pinned path                      | Ext     | Files | Lines    | LOC/file | URL  | Build                               |
-| -- | ---------------------------------- | ----------- | ----------------------------------- | -------- | -------------------------------- | ------- | ----- | -------- | ------- | ---- | ----------------------------------- |
-| 1  | catchorg/Catch2                    | C++         | Testing framework                   | `devel`  | `src`                            | `.cpp`  | 106   | 13,291   | 125.4   | [link](https://github.com/catchorg/Catch2/tree/devel/src) | CMake, Bazel, Meson                 |
-| 2  | FasterXML/jackson-core             | Java        | JSON processing                     | `3.x`    | `src`                            | `.java` | 390   | 120,296  | 308.5   | [link](https://github.com/FasterXML/jackson-core/tree/3.x/src) | Maven                               |
-| 3  | alibaba/fastjson2                  | Java        | JSON processing                     | `main`   | `core`                           | `.java` | 2,733 | 408,084  | 149.3   | [link](https://github.com/alibaba/fastjson2/tree/main/core) | Maven                               |
-| 4  | elastic/logstash                   | Java + Ruby | Data ingestion pipeline             | `main`   | `logstash-core/src/main/java`    | `.java` | 386   | 46,292   | 119.9   | [link](https://github.com/elastic/logstash/tree/main/logstash-core/src/main/java) | Gradle + Rake (+ some Maven)        |
-| 5  | google/gson                        | Java        | JSON serialization                  | `main`   | `gson/src/main`                  | `.java` | 87    | 19,303   | 221.9   | [link](https://github.com/google/gson/tree/main/gson/src/main) | Maven                               |
-| 6  | GoogleContainerTools/jib           | Java        | Container image build               | `master` | `jib-core/src/main/java`         | `.java` | 165   | 22,997   | 139.4   | [link](https://github.com/GoogleContainerTools/jib/tree/master/jib-core/src/main/java) | Multi-module (Maven/Gradle per module) |
-| 7  | ankidroid/Anki-Android             | Kotlin/Java | Android flashcards                  | `main`   | `AnkiDroid/src/main/java/com/ichi2` | `.kt` | 610   | 109,634  | 179.7   | [link](https://github.com/ankidroid/Anki-Android/tree/main/AnkiDroid/src/main/java/com/ichi2) | Gradle                              |
-| 8  | wordpress-mobile/WordPress-Android | Kotlin/Java | Android app                         | `trunk`  | `WordPress/src/main/java/org/wordpress/android` | `.kt` | 2,049 | 231,006  | 112.7   | [link](https://github.com/wordpress-mobile/WordPress-Android/tree/trunk/WordPress/src/main/java/org/wordpress/android) | Gradle                              |
-| 9  | Kotlin/kotlinx.coroutines          | Kotlin      | Concurrency library                 | `master` | `kotlinx-coroutines-core`        | `.kt`   | 698   | 75,956   | 108.8   | [link](https://github.com/Kotlin/kotlinx.coroutines/tree/master/kotlinx-coroutines-core) | Gradle (Kotlin DSL)                 |
-| 10 | Kotlin/kotlinx-datetime            | Kotlin      | Date/time library                   | `master` | `core`                           | `.kt`   | 181   | 30,564   | 168.9   | [link](https://github.com/Kotlin/kotlinx-datetime/tree/master/core) | Gradle (Kotlin DSL)                 |
-| 11 | psf/requests                       | Python      | HTTP client library                 | `main`   | `src/requests`                   | `.py`   | 18    | 5,644    | 313.6   | [link](https://github.com/psf/requests/tree/main/src/requests) | pyproject + tox                     |
-| 12 | pallets/flask                      | Python      | Web framework                       | `main`   | `src/flask`                      | `.py`   | 24    | 9,449    | 393.7   | [link](https://github.com/pallets/flask/tree/main/src/flask) | pyproject                           |
-| 13 | pydata/xarray                      | Python      | Labeled arrays / scientific computing | `main` | `xarray`                         | `.py`   | 197   | 189,240  | 961.6   | [link](https://github.com/pydata/xarray/tree/main/xarray) | pyproject                           |
-| 14 | mwaskom/seaborn                    | Python      | Statistical visualization           | `master` | `seaborn`                        | `.py`   | 54    | 29,278   | 542.2   | [link](https://github.com/mwaskom/seaborn/tree/master/seaborn) | pyproject                           |
-| 15 | pytest-dev/pytest                  | Python      | Testing framework                   | `main`   | `src/_pytest`                    | `.py`   | 70    | 35,161   | 502.3   | [link](https://github.com/pytest-dev/pytest/tree/main/src/_pytest) | pyproject + tox                     |
-
-
+| #  | Repository                         | Language    | Domain                              | Branch   | Pinned path                           | Ext     | Files | Lines    | LOC/file | URL  |
+| -- | ---------------------------------- | ----------- | ----------------------------------- | -------- | ------------------------------------- | ------- | ----- | -------- | ------- | ---- |
+| 1  | catchorg/Catch2                    | C++         | Testing framework                   | `devel`  | `src`                                 | `.cpp`  | 106   | 13,291   | 125.4   | [link](https://github.com/catchorg/Catch2/tree/devel/src) |
+| 2  | FasterXML/jackson-core             | Java        | JSON processing                     | `3.x`    | `src`                                 | `.java` | 390   | 120,296  | 308.5   | [link](https://github.com/FasterXML/jackson-core/tree/3.x/src) |
+| 3  | alibaba/fastjson2                  | Java        | JSON processing                     | `main`   | `core`                                | `.java` | 2,733 | 408,084  | 149.3   | [link](https://github.com/alibaba/fastjson2/tree/main/core) |
+| 4  | elastic/logstash                   | Java + Ruby | Data ingestion pipeline             | `main`   | `logstash-core/src/main/java`         | `.java` | 386   | 46,292   | 119.9   | [link](https://github.com/elastic/logstash/tree/main/logstash-core/src/main/java) |
+| 5  | google/gson                        | Java        | JSON serialization                  | `main`   | `gson/src/main`                       | `.java` | 87    | 19,303   | 221.9   | [link](https://github.com/google/gson/tree/main/gson/src/main) |
+| 6  | GoogleContainerTools/jib           | Java        | Container image build               | `master` | `jib-core/src/main/java`              | `.java` | 165   | 22,997   | 139.4   | [link](https://github.com/GoogleContainerTools/jib/tree/master/jib-core/src/main/java) |
+| 7  | ankidroid/Anki-Android             | Kotlin/Java | Android flashcards                  | `main`   | `AnkiDroid/src/main/java/com/ichi2`   | `.kt`   | 610   | 109,634  | 179.7   | [link](https://github.com/ankidroid/Anki-Android/tree/main/AnkiDroid/src/main/java/com/ichi2) |
+| 8  | wordpress-mobile/WordPress-Android | Kotlin/Java | Android app                         | `trunk`  | `WordPress/src/main/java/org/wordpress/android` | `.kt` | 2,049 | 231,006  | 112.7   | [link](https://github.com/wordpress-mobile/WordPress-Android/tree/trunk/WordPress/src/main/java/org/wordpress/android) |
+| 9  | Kotlin/kotlinx.coroutines          | Kotlin      | Concurrency library                 | `master` | `kotlinx-coroutines-core`             | `.kt`   | 698   | 75,956   | 108.8   | [link](https://github.com/Kotlin/kotlinx.coroutines/tree/master/kotlinx-coroutines-core) |
+| 10 | Kotlin/kotlinx-datetime            | Kotlin      | Date/time library                   | `master` | `core`                                | `.kt`   | 181   | 30,564   | 168.9   | [link](https://github.com/Kotlin/kotlinx-datetime/tree/master/core) |
+| 11 | psf/requests                       | Python      | HTTP client library                 | `main`   | `src/requests`                        | `.py`   | 18    | 5,644    | 313.6   | [link](https://github.com/psf/requests/tree/main/src/requests) |
+| 12 | pallets/flask                      | Python      | Web framework                       | `main`   | `src/flask`                           | `.py`   | 24    | 9,449    | 393.7   | [link](https://github.com/pallets/flask/tree/main/src/flask) |
+| 13 | pydata/xarray                      | Python      | Labeled arrays / scientific computing | `main` | `xarray`                              | `.py`   | 197   | 189,240  | 961.6   | [link](https://github.com/pydata/xarray/tree/main/xarray) |
+| 14 | mwaskom/seaborn                    | Python      | Statistical visualization           | `master` | `seaborn`                             | `.py`   | 54    | 29,278   | 542.2   | [link](https://github.com/mwaskom/seaborn/tree/master/seaborn) |
+| 15 | pytest-dev/pytest                  | Python      | Testing framework                   | `main`   | `src/_pytest`                         | `.py`   | 70    | 35,161   | 502.3   | [link](https://github.com/pytest-dev/pytest/tree/main/src/_pytest) |
+                   
 ---
 
 
