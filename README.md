@@ -1154,17 +1154,6 @@ mypy src/_pytest/
 
 > **Important**: After any refactoring, run the full test suite to confirm no regressions. For Android projects, run both unit tests and instrumented tests.
 
----
-
-## SOLID Principles Quick Reference
-
-| Principle | Full Name | Key Question |
-|-----------|-----------|-------------|
-| **S** | Single Responsibility | Does this class have only one reason to change? |
-| **O** | Open/Closed | Can I extend behavior without modifying existing code? |
-| **L** | Liskov Substitution | Can I use any subclass wherever the parent is expected? |
-| **I** | Interface Segregation | Are interfaces focused, or do they force unused dependencies? |
-| **D** | Dependency Inversion | Do high-level modules depend on abstractions, not concretions? |
 
 ---
 
