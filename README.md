@@ -1188,3 +1188,36 @@ mypy src/_pytest/
 - The Kotlin repositories (kotlinx.coroutines, kotlinx-datetime) showcase idiomatic multiplatform library design
 - Android projects (Anki-Android, WordPress-Android) demonstrate real-world MVVM and architectural evolution under production constraints
 - Python repositories (Flask, pytest, Matplotlib) highlight both elegant design and accumulated complexity in mature open-source projects
+
+
+---
+
+# Appendix — Repository Source File Statistics
+
+This appendix provides verified source file and line counts for each repository's analysed path. All counts cover only source files of the primary language extension (`.cpp`, `.java`, `.kt`, or `.py`) within the tracked path and branch.
+
+---
+
+## A.1 Complete Statistics Table
+
+| # | Repository | Branch | Analysed Path | Ext | Files | Lines | Avg Lines/File |
+|---|-----------|--------|--------------|-----|------:|------:|---------------:|
+| 1 | catchorg/Catch2 | `devel` | `src/` | `.cpp` | 106 | 13,291 | 125 |
+| 2 | FasterXML/jackson-core | `3.x` | `src/` | `.java` | 390 | 120,296 | 308 |
+| 3 | alibaba/fastjson2 | `main` | `core/` | `.java` | 2,733 | 408,084 | 149 |
+| 4 | elastic/logstash | `main` | `logstash-core/src/main/java/` | `.java` | 386 | 46,292 | 120 |
+| 5 | google/gson | `main` | `gson/src/main/` | `.java` | 87 | 19,303 | 222 |
+| 6 | GoogleContainerTools/jib | `master` | `jib-core/src/main/java/` | `.java` | 165 | 22,997 | 139 |
+| 7 | ankidroid/Anki-Android | `main` | `AnkiDroid/src/main/java/com/ichi2/` | `.kt` | 610 | 109,634 | 180 |
+| 8 | wordpress-mobile/WordPress-Android | `trunk` | `WordPress/src/main/java/org/wordpress/android/` | `.kt` | 2,049 | 231,006 | 113 |
+| 9 | Kotlin/kotlinx.coroutines | `master` | `kotlinx-coroutines-core/` | `.kt` | 698 | 75,956 | 109 |
+| 10 | Kotlin/kotlinx-datetime | `master` | `core/` | `.kt` | 181 | 30,564 | 169 |
+| 11 | psf/requests | `main` | `src/requests/` | `.py` | 18 | 5,644 | 314 |
+| 12 | pallets/flask | `main` | `src/flask/` | `.py` | 24 | 9,449 | 394 |
+| 13 | matplotlib/matplotlib | `main` | `lib/matplotlib/` | `.py` | 253 | 196,593 | 777 |
+| 14 | pydata/xarray | `main` | `xarray/` | `.py` | 197 | 189,240 | 961 |
+| 15 | mwaskom/seaborn | `master` | `seaborn/` | `.py` | 54 | 29,278 | 542 |
+| 16 | pytest-dev/pytest | `main` | `src/_pytest/` | `.py` | 70 | 35,161 | 502 |
+| — | **TOTAL** | | | | **8,021** | **1,542,788** | **192** |
+
+---
