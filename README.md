@@ -8,23 +8,23 @@ This document provides an overview of the fifteen repositories assigned for refa
 
 ## Repository index
 
-| # | Repository | Language | Domain | Branch | Primary Source Path | Build |
-|---:|---|---|---|---|---|---|
-| 1 | catchorg/Catch2 | C++ | Testing framework | `devel` | `src/` | CMake, Bazel, Meson |
-| 2 | FasterXML/jackson-core | Java | JSON processing | `3.x` | `src/main/java/` | Maven |
-| 3 | alibaba/fastjson2 | Java | JSON processing | `main` | `core/` | Maven |
-| 4 | elastic/logstash | Java + Ruby | Data ingestion pipeline | `main` | `logstash-core/src/main/java/` | Gradle + Rake (+ some Maven) |
-| 5 | google/gson | Java | JSON serialization | `main` | `gson/src/main/` | Maven |
-| 6 | GoogleContainerTools/jib | Java | Container image build | (multi) | `*/src/main/java/` | Maven/Gradle (per module) |
-| 7 | ankidroid/Anki-Android | Kotlin/Java | Android flashcards | `main` | `AnkiDroid/src/main/java/...` | Gradle |
-| 8 | wordpress-mobile/WordPress-Android | Kotlin/Java | Android app | `trunk` | `WordPress/src/main/java/...` | Gradle |
-| 9 | Kotlin/kotlinx.coroutines | Kotlin | Concurrency library | `master` | `kotlinx-coroutines-core/` | Gradle (Kotlin DSL) |
-| 10 | Kotlin/kotlinx-datetime | Kotlin | Date/time library | `master` | `core/` | Gradle (Kotlin DSL) |
-| 11 | psf/requests | Python | HTTP client library | `main` | `src/requests/` | pyproject + tox |
-| 12 | pallets/flask | Python | Web framework | `main` | `src/flask/` | pyproject |
-| 13 | pydata/xarray | Python | Labeled arrays / scientific computing | `main` | `xarray/` | pyproject |
-| 14 | mwaskom/seaborn | Python | Statistical visualization | `master` | `seaborn/` | pyproject |
-| 15 | pytest-dev/pytest | Python | Testing framework | `main` | `src/_pytest/` | pyproject + tox |
+| # | Repository | Language | Domain | Branch | Primary Source Path |
+|---:|---|---|---|---|---|
+| 1 | catchorg/Catch2 | C++ | Testing framework | `devel` | `src/` |
+| 2 | FasterXML/jackson-core | Java | JSON processing | `3.x` | `src/main/java/` |
+| 3 | alibaba/fastjson2 | Java | JSON processing | `main` | `core/` |
+| 4 | elastic/logstash | Java + Ruby | Data ingestion pipeline | `main` | `logstash-core/src/main/java/` |
+| 5 | google/gson | Java | JSON serialization | `main` | `gson/src/main/` |
+| 6 | GoogleContainerTools/jib | Java | Container image build | (multi) | `*/src/main/java/` |
+| 7 | ankidroid/Anki-Android | Kotlin/Java | Android flashcards | `main` | `AnkiDroid/src/main/java/...` |
+| 8 | wordpress-mobile/WordPress-Android | Kotlin/Java | Android app | `trunk` | `WordPress/src/main/java/...` |
+| 9 | Kotlin/kotlinx.coroutines | Kotlin | Concurrency library | `master` | `kotlinx-coroutines-core/` |
+| 10 | Kotlin/kotlinx-datetime | Kotlin | Date/time library | `master` | `core/` |
+| 11 | psf/requests | Python | HTTP client library | `main` | `src/requests/` |
+| 12 | pallets/flask | Python | Web framework | `main` | `src/flask/` |
+| 13 | pydata/xarray | Python | Labeled arrays / scientific computing | `main` | `xarray/` |
+| 14 | mwaskom/seaborn | Python | Statistical visualization | `master` | `seaborn/` |
+| 15 | pytest-dev/pytest | Python | Testing framework | `main` | `src/_pytest/` |
 
 ---
 
